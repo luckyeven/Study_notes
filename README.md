@@ -58,5 +58,5 @@ django-admin startproject <project name>
 Once, the project is created, lunch the server by:
 
 ```bash
-python3 -m manage.py runserve
+python3 -m manage.py runserver
 ```
