@@ -3,12 +3,13 @@
 ## GENERAL
 
 * [README](README.md)
-* [Introduction](general/introduction.md)
-* [Creating a new app](general/creating-a-new-app.md)
-* [HTTP Request Object](general/http-request-object.md)
-* [Requests and URLs](general/requests-and-urls.md)
+* [Introduction](introduction.md)
+* [Creating a new app](creating-a-new-app.md)
+* [HTTP Request Object](http-request-object.md)
+* [Requests and URLs](requests-and-urls.md)
 * [Regular expression in URLs](general/regular-expression-in-urls.md)
 * [URL Namespacing and Views](general/url-namespacing-and-views.md)
+* [Error Handling](general/error-handling.md)
 
 ## Resources
 
