@@ -6,4 +6,3 @@ description: >-
 
 # README
 
-Check SUMMERY.md for table of contents
