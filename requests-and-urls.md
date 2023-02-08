@@ -44,6 +44,34 @@ Content-Type: text/html
 </html>
 ```
 
+## Mapping URLs with Params
+
+{% code lineNumbers="true" %}
+```python
+# urls.py
+# https://www.example.com/page/luckyeven
+
+urlpatterns = [
+    path('page/<str:name>', views.page, name="page"),
+]
+```
+{% endcode %}
+
+{% code lineNumbers="true" %}
+```python
+# views.py
+
+def page(request, name):
+    query = name
+    return HttpResponse("<h1> %s </h1>" %query)
+    
+```
+{% endcode %}
+
+
+
+
+
 
 
 
