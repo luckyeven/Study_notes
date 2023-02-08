@@ -6,4 +6,4 @@ description: >-
 
 # README
 
-\[Table of content]\(SUMMARY.md)
+Check SUMMERY.md for table of contents
