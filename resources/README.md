@@ -1,6 +1,0 @@
----
-description: Additional resources
----
-
-# Resources
-
