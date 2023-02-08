@@ -1,6 +1,5 @@
 # Table of contents
 
-* [Table of contents](https://github.com/luckyeven/Study\_notes/blob/87e9a5f70278e06ae285aa6367c7b6c5660c8aa3/SUMMARY.md)
 * [README](README.md)
 * [Introduction](introduction.md)
 * [Creating a new app](creating-a-new-app.md)
