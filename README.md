@@ -12,13 +12,14 @@ Python recommends using a virtual environment to build Python applications.
 
 Python built-in module named `venv`. For example:
 
-<pre class="language-bash"><code class="lang-bash"><strong>// To create a new environment
-</strong><strong>python -m venv &#x3C;new env name>
-</strong><strong>// Activate an environment
-</strong><strong>source env/bin/activate
-</strong><strong>// Exit the virtual environment
-</strong><strong>deactivate
-</strong></code></pre>
+```bash
+// To create a new environment
+python -m venv <new env name>
+// Activate an environment
+source env/bin/activate
+// Exit the virtual environment
+deactivate
+```
 
 ## Creating a project
 
