@@ -1,10 +1,10 @@
 ---
 description: >-
-  Get to know Django and its uses, and learn how to set up your projects and
-  applications.
+  Study note about Django and its uses, and learn how to set up your projects
+  and applications.
 ---
 
-# Intro
+# README
 
 ## Setting up a Django project in VS code
 
