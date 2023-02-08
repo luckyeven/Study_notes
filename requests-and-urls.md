@@ -64,7 +64,6 @@ urlpatterns = [
 def page(request, name):
     query = name
     return HttpResponse("<h1> %s </h1>" %query)
-    
 ```
 {% endcode %}
 
