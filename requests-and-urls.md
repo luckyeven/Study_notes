@@ -67,6 +67,8 @@ def page(request, name):
 ```
 {% endcode %}
 
+## Additional resources
+
 
 
 
