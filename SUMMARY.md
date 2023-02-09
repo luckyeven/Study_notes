@@ -16,7 +16,7 @@
 
 * [Model](models/model.md)
 * [Creating models](models/creating-models.md)
-* [Models using Foreign Keys](models/models-using-foreign-keys.md)
+* [Models and Forms](models/models-and-forms.md)
 
 ## DataBase
 
