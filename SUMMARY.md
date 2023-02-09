@@ -11,6 +11,10 @@
 * [URL Namespacing and Views](general/url-namespacing-and-views.md)
 * [Error Handling](general/error-handling.md)
 
+## Example App
+
+* [TypeOfDrink](example-app/typeofdrink.md)
+
 ## Resources
 
 * [Class-based views – Official](https://docs.djangoproject.com/en/4.1/topics/class-based-views/)
