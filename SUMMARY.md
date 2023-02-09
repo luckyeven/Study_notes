@@ -12,6 +12,10 @@
 * [Error Handling](general/error-handling.md)
 * [Class-based views](general/class-based-views.md)
 
+## Models
+
+* [Model](models/model.md)
+
 ## Example App
 
 * [TypeOfDrink](example-app/typeofdrink.md)
