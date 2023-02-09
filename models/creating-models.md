@@ -90,5 +90,47 @@ Then enter the shell again by typing: `python3 manage.py shell`
 >>> from myModel.models import user
 >>> user.objects.all()
 <QuerySet [<user: song lives in ottawa>, <user: lucky lives in ottawa>]>
+
+>>> a = user.objects.get(pk=1)
+>>> a.name = 'good boy'
+>>> a.save()
+>>> user.objects.all()
+<QuerySet [<user: good boy lives in ottawa>, <user: lucky lives in ottawa>]>
+```
+
+Check the database:
+
+```
+mysql> USE django
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++----------------------------+
+| Tables_in_django           |
++----------------------------+
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
+| myModel_user               |
++----------------------------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM myModel_user;
++----+----------+---------+
+| id | name     | address |
++----+----------+---------+
+|  1 | good boy | ottawa  |
+|  2 | lucky    | ottawa  |
++----+----------+---------+
+2 rows in set (0.00 sec)
 ```
 

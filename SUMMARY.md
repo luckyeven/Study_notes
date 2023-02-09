@@ -17,6 +17,10 @@
 * [Model](models/model.md)
 * [Creating models](models/creating-models.md)
 
+## DataBase
+
+* [Configure Django with MySQL](database/configure-django-with-mysql.md)
+
 ## Example App
 
 * [TypeOfDrink](example-app/typeofdrink.md)
