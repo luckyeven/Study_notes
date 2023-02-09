@@ -24,6 +24,7 @@
 ## Example App
 
 * [TypeOfDrink](example-app/typeofdrink.md)
+* [Drinks](example-app/drinks.md)
 
 ## Resources
 
