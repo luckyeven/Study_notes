@@ -10,6 +10,7 @@
 * [Regular expression in URLs](general/regular-expression-in-urls.md)
 * [URL Namespacing and Views](general/url-namespacing-and-views.md)
 * [Error Handling](general/error-handling.md)
+* [Class-based views](general/class-based-views.md)
 
 ## Example App
 
