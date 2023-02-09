@@ -15,6 +15,7 @@
 ## Models
 
 * [Model](models/model.md)
+* [Creating models](models/creating-models.md)
 
 ## Example App
 
