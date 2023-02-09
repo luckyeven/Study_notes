@@ -19,6 +19,19 @@ class user(models.Model):
 ```
 {% endcode %}
 
+Update the admin.py at app level
+
+{% code lineNumbers="true" %}
+```python
+# admin.py
+from django.contrib import admin
+from .models import user
+
+# Register your models here.
+admin.site.register(user)
+```
+{% endcode %}
+
 Update app in settings.py at project-level folder.
 
 {% code lineNumbers="true" %}
