@@ -12,11 +12,11 @@
 * [Error Handling](general/error-handling.md)
 * [Class-based views](general/class-based-views.md)
 
-## Models
+## Models and Forms
 
-* [Model](models/model.md)
-* [Creating models](models/creating-models.md)
-* [Models and Forms](models/models-and-forms.md)
+* [Model](models-and-forms/model.md)
+* [Creating models](models-and-forms/creating-models.md)
+* [Forms](models-and-forms/forms.md)
 
 ## DataBase
 
