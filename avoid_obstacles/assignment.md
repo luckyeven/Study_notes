@@ -205,8 +205,8 @@ entry_points={
 By declaring two parameters in the codes, the threshold can be easily adjusted during run time without rebuilding the package using the following commends;
 
 ```bash
-ros2 set webcam_sub red_h_lower 0
-ros2 set webcam_sub red_h_upper 180
+ros2 param set webcam_sub red_h_lower 0
+ros2 param set webcam_sub red_h_upper 180
 ```
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Example of edge detection</p></figcaption></figure>
