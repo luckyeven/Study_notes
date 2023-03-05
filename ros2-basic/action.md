@@ -14,7 +14,7 @@ description: >-
 * .action file defines the interface
 
 ```bash
-ros2 run action list
+ros2 action list
 
 ros2 action info </action>
 

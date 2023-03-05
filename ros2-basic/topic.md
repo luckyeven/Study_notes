@@ -111,7 +111,7 @@ Open the `setup.py` file of the package and add the following entry point config
 
 ```
 $ ros2 topic list                
-$ ros2 topic info <topic_name>   
+$ ros2 topic info <topic_name> --verbose
 $ ros2 topic hz <topic_name>    
 $ ros2 topic bw <topic_name>    
 $ ros2 topic echo <topic_name>   

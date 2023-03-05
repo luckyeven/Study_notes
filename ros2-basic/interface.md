@@ -43,3 +43,13 @@ bool finish
 int32 state
 ```
 {% endcode %}
+
+```
+$ ros2 interface list                    
+$ ros2 interface show <interface_name>   
+$ ros2 interface package <package_name>  
+
+```
+
+{% embed url="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Single-Package-Define-And-Use-Interface.html" %}
+

@@ -15,7 +15,13 @@
 * [Parameters](ros2-basic/parameters.md)
 * [Distributed communication](ros2-basic/distributed-communication.md)
 
+## avoid\_obstacles
+
+* [Report](avoid\_obstacles/report.md)
+
 ## Other
 
 * [ros-humble-usb-cam](other/ros-humble-usb-cam.md)
 * [SSH](other/ssh.md)
+* [rqt](other/rqt.md)
+* [irobot commend](other/irobot-commend.md)
