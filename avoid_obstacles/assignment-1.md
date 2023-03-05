@@ -1,4 +1,27 @@
-# Assignment
+# Assignment 1
+
+&#x20;                                                                     \[Cover Page]
+
+
+
+&#x20;                                                        Algonquin College, Ottawa, Canada
+
+&#x20;
+
+&#x20;                                                Artificial Intelligence Software Development
+
+&#x20;
+
+&#x20;                                                         23W\_CST8508\_100 Machine Vision
+
+&#x20;                                                                  Professor Surbhi Bahri
+
+
+
+Assignment 1 – 2023 March 5th
+
+Song, Shifeng\
+
 
 ## Introduction
 
@@ -268,5 +291,5 @@ This node listens for a message of type Collision on the topic collision\_warnin
 
 ### Conclusion
 
-n conclusion, this assignment demonstrated the implementation of obstacle avoidance using an iRobot, where a tape boundary was created to restrict the robot's movement within a specific area. The implementation involved creating a ROS2 workspace, designing high and low-level architecture, and developing codes to subscribe to an image topic, perform edge detection, publish a collision topic, and listen to the collision topic to generate movement commands for the robot.&#x20;
+In conclusion, this assignment demonstrated the implementation of obstacle avoidance using an iRobot, where a tape boundary was created to restrict the robot's movement within a specific area. The implementation involved creating a ROS2 workspace, designing high and low-level architecture, and developing codes to subscribe to an image topic, perform edge detection, publish a collision topic, and listen to the collision topic to generate movement commands for the robot.&#x20;
 
