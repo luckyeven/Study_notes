@@ -1,4 +1,4 @@
-# Report
+# Assignment
 
 ## Introduction
 
@@ -28,6 +28,8 @@ The communication between the two computers seems a bit complicated, after all, 
 In addition to the PC I used, I chose a laptop as another computing platform to simulate a Raspberry Pi as a controller placed on the robot.
 
 ## Low-Level Design Graph
+
+<figure><img src="../.gitbook/assets/Blank diagram (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Procedure
 
@@ -101,6 +103,7 @@ Run the `webcam_pub` topic and `rqt` tool to see video frames.
 
 #### webcam\_sub.py
 
+````python
 ```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -112,6 +115,8 @@ from sensor_msgs.msg import Image       # ROS2 image message
 from cv_bridge import CvBridge          # ROS2 OpenCV bridge
 import cv2                              # Opencv library
 import numpy as np                      # Python library for numerical computation
+
+from cus_interfaces.msg import Collision
 
 lower_red = np.array([0, 90, 128])      # the lower boundary of red color in HSV color space
 upper_red = np.array([180, 255, 255])   # the upper boundary of red color in HSV color space
@@ -127,9 +132,10 @@ class ImageSubscriber(Node):
             Image, 'image_raw', self.listener_callback, 10)     # create a subscriber to receive image message
         self.cv_bridge = CvBridge()                             # create a bridge to convert ROS2 image message to OpenCV image
 
-        self.declare_parameter('red_h_upper', 0)                # declear a parameter
-        self.declare_parameter('red_h_lower', 0)                # declear a parameter
-    
+        self.declare_parameter('red_h_upper', 0)                # declare a parameter
+        self.declare_parameter('red_h_lower', 0)                # declare a parameter
+        
+        self.collision_pub = self.create_publisher(Collision, 'collision_warning', 10)
 
     def edge_detect(self, image):
         upper_red[0] = self.get_parameter('red_h_upper').get_parameter_value().integer_value      # read the upper threshold parameter value
@@ -139,14 +145,32 @@ class ImageSubscriber(Node):
         contours, hierarchy = cv2.findContours(
             mask_red, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)     # find the contours of the red color region
 
+        height, width = image.shape[:2]
+        y_coord = int(height * (9/10))
+        pt1 = (0, y_coord)
+        pt2 = (width, y_coord)
+        cv2.line(image, pt1, pt2, (255, 0, 0), 2)             # Draw the line on the image
         for cnt in contours:                                    # traverse all the contours
             if cnt.shape[0] < 150:
                 continue
 
             (x, y, w, h) = cv2.boundingRect(cnt)                # get the bounding rectangle of the contour
+
+            if y + h  >= y_coord:
+                self.get_logger().info('Collision Warning')
+                collision_msg = Collision()
+                collision_msg.warning = True
+                self.collision_pub.publish(collision_msg)
+            else:
+                self.get_logger().info('No Collision')
+                collision_msg = Collision()
+                collision_msg.warning = False
+                self.collision_pub.publish(collision_msg)
+            center = (int(x+w/2), int(y+h/2))                   # get the center of the contour
             cv2.drawContours(image, [cnt], -1, (0, 255, 0), 2)  # draw the contour on the image
-            cv2.circle(image, (int(x+w/2), int(y+h/2)), 5,
+            cv2.circle(image, center, 5,
                        (0, 255, 0), -1)                         # draw the center of the contour on the image
+
 
         cv2.imshow("object", image)                             # show the image
         cv2.waitKey(10)
@@ -165,6 +189,7 @@ def main(args=None):                                        # main function
     rclpy.shutdown()                                        # shutdown ROS2 Python interface
 
 ```
+````
 
 Add the entry point
 
@@ -185,3 +210,63 @@ ros2 set webcam_sub red_h_upper 180
 ```
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Example of edge detection</p></figcaption></figure>
+
+I then compare the y coordinate of the bottom edge of the bounding rectangle with the y coordinate of a line to check if they touch. If they touch, the node will publish another message to forward the `collision topic`.
+
+#### action.py
+
+```python
+import rclpy
+from rclpy.node import Node
+from cus_interfaces.msg import Collision
+from geometry_msgs.msg import Twist
+
+
+
+class action(Node):
+
+    def __init__(self, name):
+        super().__init__(name)
+        self.subscription = self.create_subscription(
+            Collision,
+            'collision_warning',
+            self.listener_callback,
+            10)                                                             # create a subscriber
+        
+        self.vel_publisher = self.create_publisher(Twist, 'cmd_vel', 10)
+
+    def listener_callback(self, msg):
+        angle = 0.0     # for turning 
+        linear = 0.0    # distance for going straight forward.
+        if msg.warning:    # if collision warning is true
+            self.get_logger().info('forward collision warning, turn left')
+            angle = 0.1         # turn right
+        else:
+            linear = 0.5        # go straight forward         
+    
+        twist = Twist() # create a Twist object
+        twist.linear.x = linear
+        twist.angular.z = angle
+        if self.vel_publisher.get_subscription_count() > 0: # publish twist message if there is subscriber
+            self.vel_publisher.publish(twist)
+        else:
+            self.get_logger().info('waiting for subscriber')  # otherwise wait for a subscriber.
+
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    node = action("collision_subscriber")
+
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+```
+
+This node listens for a message of type Collision on the topic collision\_warning. When a message is received, it checks the warning field of the message. If it is True, the node turns the robot slightly to the left, otherwise, it moves the robot forward. The movement commands are published to the topic cmd\_vel.
+
+### Conclusion
+
+n conclusion, this assignment demonstrated the implementation of obstacle avoidance using an iRobot, where a tape boundary was created to restrict the robot's movement within a specific area. The implementation involved creating a ROS2 workspace, designing high and low-level architecture, and developing codes to subscribe to an image topic, perform edge detection, publish a collision topic, and listen to the collision topic to generate movement commands for the robot.&#x20;
+

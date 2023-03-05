@@ -17,7 +17,7 @@
 
 ## avoid\_obstacles
 
-* [Report](avoid\_obstacles/report.md)
+* [Assignment](avoid\_obstacles/assignment.md)
 
 ## Other
 
