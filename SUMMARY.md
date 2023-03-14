@@ -17,7 +17,7 @@
 
 ## avoid\_obstacles
 
-* [Assignment 1](avoid\_obstacles/assignment-1.md)
+* [Feature 1](avoid\_obstacles/feature-1.md)
 
 ## Other
 

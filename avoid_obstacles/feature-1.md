@@ -1,31 +1,21 @@
-# Assignment 1
-
-&#x20;                                                                     \[Cover Page]
+# Feature 1
 
 
-
-&#x20;                                                        Algonquin College, Ottawa, Canada
 
 &#x20;
 
-&#x20;                                                Artificial Intelligence Software Development
-
 &#x20;
 
-&#x20;                                                         23W\_CST8508\_100 Machine Vision
-
-&#x20;                                                                  Professor Surbhi Bahri
 
 
-
-Assignment 1 – 2023 March 5th
+2023 March 5th
 
 Song, Shifeng\
 
 
 ## Introduction
 
-In this assignment, I will present the implementation of avoiding obstacles using an iRobot, specifically, I used tape to create a boundary area, which restricts the robot's movement within a specific area.&#x20;
+In this section I will present the implementation of avoiding obstacles using an iRobot, specifically, I used tape to create a boundary area, which restricts the robot's movement within a specific area.&#x20;
 
 ## Equipment
 
@@ -288,8 +278,4 @@ def main(args=None):
 ```
 
 This node listens for a message of type Collision on the topic collision\_warning. When a message is received, it checks the warning field of the message. If it is True, the node turns the robot slightly to the left, otherwise, it moves the robot forward. The movement commands are published to the topic cmd\_vel.
-
-### Conclusion
-
-In conclusion, this assignment demonstrated the implementation of obstacle avoidance using an iRobot, where a tape boundary was created to restrict the robot's movement within a specific area. The implementation involved creating a ROS2 workspace, designing high and low-level architecture, and developing codes to subscribe to an image topic, perform edge detection, publish a collision topic, and listen to the collision topic to generate movement commands for the robot.&#x20;
 
